@@ -1,11 +1,16 @@
 #!/bin/sh
-set -e
 
-: "${PORT:=8080}"
+PORT=${PORT:-8080}
 
-# render Xray config with the platform-assigned port
-sed -e "s|__PORT__|$PORT|g" /etc/xray/config.template.json > /etc/xray/config.json
+# جایگزینی پورت داینامیک Deplexo
+sed -i "s|\"port\": 8080|\"port\": $PORT|g" /etc/xray/config.json
 
-echo "[entrypoint] Xray starting on port $PORT, path /vless (XHTTP transport)"
+echo "===================="
+echo "Xray Config Loaded"
+echo "PORT: $PORT"
+echo "UUID: 8f3a2b1c-9d4e-4f6a-b7c8-1e2d3f4a5b6c"
+echo "XHTTP Path: /xhttp-7k9m2p4q (mode: packet-up)"
+echo "WS Path: /ws-3n8v5x1z"
+echo "===================="
 
-exec xray run -config /etc/xray/config.json
+exec /usr/local/bin/xray run -c /etc/xray/config.json
