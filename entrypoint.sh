@@ -1,9 +1,6 @@
 #!/bin/sh
 
-PORT=${PORT:-8080}
-
-# جایگزینی پورت داینامیک Deplexo
-sed -i "s|\"port\": 8080|\"port\": $PORT|g" /etc/xray/config.json
+PORT=${PORT:-80}
 
 echo "===================="
 echo "Xray Config Loaded"
