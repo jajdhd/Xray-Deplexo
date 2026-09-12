@@ -5,7 +5,7 @@
   "inbounds": [
     {
       "tag": "xhttp-in",
-      "port": 8080,
+      "port": 80,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -27,7 +27,7 @@
     },
     {
       "tag": "ws-in",
-      "port": 8080,
+      "port": 80,
       "protocol": "vless",
       "settings": {
         "clients": [
