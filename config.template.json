@@ -4,39 +4,54 @@
   },
   "inbounds": [
     {
-      "listen": "0.0.0.0",
-      "port": __PORT__,
+      "tag": "xhttp-in",
+      "port": 8080,
       "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "id": "ebd389ef-415e-439c-afb1-1ca5d6df3294",
-            "level": 0
+            "id": "8f3a2b1c-9d4e-4f6a-b7c8-1e2d3f4a5b6c",
+            "flow": ""
           }
         ],
         "decryption": "none"
       },
       "streamSettings": {
         "network": "xhttp",
+        "security": "none",
         "xhttpSettings": {
-          "path": "/vless",
+          "path": "/xhttp-7k9m2p4q",
           "mode": "packet-up"
         }
+      }
+    },
+    {
+      "tag": "ws-in",
+      "port": 8080,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "8f3a2b1c-9d4e-4f6a-b7c8-1e2d3f4a5b6c",
+            "flow": ""
+          }
+        ],
+        "decryption": "none"
       },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls"]
+      "streamSettings": {
+        "network": "websocket",
+        "security": "none",
+        "wsSettings": {
+          "path": "/ws-3n8v5x1z"
+        }
       }
     }
   ],
   "outbounds": [
     {
+      "tag": "direct",
       "protocol": "freedom",
-      "tag": "direct"
-    },
-    {
-      "protocol": "blackhole",
-      "tag": "block"
+      "settings": {}
     }
   ]
 }
